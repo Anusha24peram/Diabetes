@@ -1,6 +1,10 @@
 # Diabetes
 
+https://diabetes-p4yn.onrender.com/
 
+<img width="1918" height="941" alt="image" src="https://github.com/user-attachments/assets/91dc5a4c-3db8-4059-ba7b-cbb63433edf5" />
+
+<img width="1918" height="937" alt="image" src="https://github.com/user-attachments/assets/b34b6897-86e0-4f72-b0f9-76d72ec5112f" />
 
 
 # Diabetes Prediction System – Step by Step Development Process
