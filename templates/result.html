@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url("https://images.unsplash.com/photo-1580281657527-47b43f79e1a1");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .result-card {
+            background: white;
+            width: 420px;
+            padding: 35px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .status {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .low {
+            color: #2ecc71;
+        }
+
+        .high {
+            color: #e74c3c;
+        }
+
+        .risk-label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: #eee;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 22px;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            text-align: right;
+            padding-right: 8px;
+            color: white;
+            font-size: 12px;
+            line-height: 22px;
+            transition: width 2s ease-in-out;
+        }
+
+        .progress-low {
+            background: linear-gradient(135deg, #2ecc71, #a8e063);
+        }
+
+        .progress-high {
+            background: linear-gradient(135deg, #e74c3c, #ff7675);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #1d976c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #148f64;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="result-card">
+
+    {% if result == "Non-Diabetic" %}
+        <div class="icon low"><i class="fa-solid fa-heart-circle-check"></i></div>
+        <h2>Prediction Result</h2>
+        <p class="status low">🟢 Non-Diabetic</p>
+        <p class="risk-label">Low Risk Level</p>
+
+        <div class="progress-container">
+            <div class="progress-bar progress-low" id="progressBar">30%</div>
+        </div>
+
+    {% else %}
+        <div class="icon high"><i class="fa-solid fa-heart-circle-exclamation"></i></div>
+        <h2>Prediction Result</h2>
+        <p class="status high">🔴 Diabetic</p>
+        <p class="risk-label">High Risk Level</p>
+
+        <div class="progress-container">
+            <div class="progress-bar progress-high" id="progressBar">80%</div>
+        </div>
+    {% endif %}
+
+    <a href="/">Predict Again</a>
+</div>
+
+<script>
+    window.onload = function () {
+        const bar = document.getElementById("progressBar");
+        if (bar.innerText === "30%") {
+            bar.style.width = "30%";
+        } else {
+            bar.style.width = "80%";
+        }
+    };
+</script>
+
+</body>
+</html>
